@@ -1,0 +1,51 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "cbuild",
+			"windows": {
+				"command": "clang++.exe -masm=intel -mavx2 -O0 -g -Wall -Wextra -pedantic -Werror -Wcast-align -Wconversion -Wpointer-arith -Wshadow -Wreturn-type -Wno-sign-conversion -fsanitize=undefined -fsanitize=address -o R:\\main.exe ${file}"
+			},
+			"linux": {
+				"command": "g++ -masm=intel -mavx2 -O0 -g -Wall -Wextra -pedantic -Werror -Wcast-align -Wconversion -Wpointer-arith -Wshadow -Wreturn-type -Wno-sign-conversion -fsanitize=undefined -fsanitize=address -o main.exe ${file}"
+			},
+			"group": "build",
+			"presentation": {
+				"reveal": "silent"
+			},
+			"problemMatcher": "$gcc"
+		},
+		{
+			"type": "shell",
+			"label": "msvc",
+			// "command": "if ((-not (Test-Path R:\\main.exe)) -or ((Get-Item R:\\main.exe).LastWriteTime -le (Get-Item ${relativeFile}).LastWriteTime) -or ((Get-Item R:\\main.exe).LastWriteTime -le (Get-Item .vscode\\tasks.json).LastWriteTime)) { cl.exe /nologo /arch:AVX2 /EHsc /W4 /WX /Z7 /MDd /fsanitize=address /FC /FoR:\\ /FeR:\\main.exe /Yuleetcode.hpp leetcode.obj ${relativeFile} }",
+			"command": "cl.exe /nologo /arch:AVX2 /EHsc /W4 /WX /Z7 /MDd /fsanitize=address /FC /FoR:\\ /FeR:\\main.exe /Yuleetcode.hpp leetcode.obj ${relativeFile}",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"reveal": "silent"
+			},
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"type": "shell",
+			"label": "dotnet",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"leetcode.csproj",
+				"/property:GenerateFullPaths=true",
+				"/consoleloggerparameters:NoSummary"
+			],
+			"group": "build",
+			"presentation": {
+				"reveal": "silent"
+			}
+		}
+	]
+}

@@ -1,0 +1,37 @@
+CompileFlags:
+  # Compiler: clang++
+  Add:
+    - -masm=intel
+    - -mavx2
+    - -O0
+    - -g
+    - -Wall
+    - -Wextra
+    - -pedantic
+    - -Werror
+    - -Wcast-align
+    - -Wconversion
+    - -Wpointer-arith
+    - -Wshadow
+    - -Wreturn-type
+    - -Wno-sign-conversion
+    - -IE:\Repository\GitHub\Cpp-Repo1\LeetCode
+
+Index:
+  Background: Skip
+
+Diagnostics:
+  Suppress: builtin_definition
+  UnusedIncludes: None
+
+
+InlayHints:
+  BlockEnd: No
+  Designators: Yes
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+  TypeNameLimit: 24
+
+Hover:
+  ShowAKA: Yes

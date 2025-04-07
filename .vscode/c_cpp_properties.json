@@ -1,0 +1,19 @@
+{
+	"configurations": [
+		{
+			"name": "msvc",
+			"compilerPath": "cl.exe",
+			"compilerArgs": [
+				"/MDd",
+				"/W4",
+				"/WX",
+				"Yuleetcode.hpp"
+			],
+			"includePath": [
+				"${workspaceFolder}"
+			],
+			"intelliSenseMode": "windows-msvc-x64"
+		}
+	],
+	"version": 4
+}
